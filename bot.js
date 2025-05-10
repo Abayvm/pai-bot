@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import { theri, theriResponse } from "./abuse.js";
+import { theri, theriResponse } from "./abuse";
 
 import { Client, GatewayIntentBits, messageLink } from 'discord.js';
 const client = new Client({
