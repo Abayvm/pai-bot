@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import { theri, theriResponse } from "./abuse";
+import { abusiveWord, abuseResponse } from './abuse.js';
 
 import { Client, GatewayIntentBits, messageLink } from 'discord.js';
 const client = new Client({
@@ -21,10 +21,10 @@ client.on('guildMemberAdd', (member) => {
 client.on('messageCreate', (message) => {
     let messageAnalysis = message.content.split(" ");
     for (let i = 0; i < messageAnalysis.length; i++) {
-        for (let j = 0; j < theri.length; j++) {
-            if (messageAnalysis[i] === theri[j]) {
-                let chooseReply = Math.floor(Math.random() * theriResponse.length);
-                message.reply(theriResponse[chooseReply]);
+        for (let j = 0; j < abusiveWord.length; j++) {
+            if (messageAnalysis[i] === abusiveWord[j]) {
+                let chooseReply = Math.floor(Math.random() * abuseResponse.length);
+                message.reply(abuseResponse[chooseReply]);
                 return;
             }
         }
