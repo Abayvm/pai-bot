@@ -14,7 +14,7 @@ client.on('ready', () => {
 client.on('guildMemberAdd', (member) => {
     const welcomeChannel = member.guild.channels.cache.get(process.env.WELCOME_CHANNEL_ID);
     if (welcomeChannel) {
-        welcomeChannel.send(`mone ${member.user.username}e, serverilekk swagatham ${member.user.tag}!`);
+        welcomeChannel.send(`mone <@${member.id}>, serverilekk swagatham`);
     }
 });
 
