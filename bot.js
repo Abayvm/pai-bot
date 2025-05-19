@@ -18,7 +18,21 @@ client.on('guildMemberAdd', (member) => {
     }
 });
 
+const afkMap = new Map();
+
 client.on('messageCreate', (message) => {
+
+    if(afkMap.has(message.author.id)){
+        message.reply(`${message.author.toString()} is no more afk`);
+        afkMap.delete(message.author.id);
+    }
+
+    if(message.content == "/afk"){
+        message.reply(`${message.author.toString()} is afk`);
+        console.log(message.author.id);
+        afkMap.set(message.author.id);
+    }
+    
     let messageAnalysis = message.content.split(" ");
     for (let i = 0; i < messageAnalysis.length; i++) {
         for (let j = 0; j < abusiveWord.length; j++) {
